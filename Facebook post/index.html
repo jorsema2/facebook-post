@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html class = "flex-center">
+    <head>
+        <title>Facebook Post</title>
+        <link rel = "stylesheet" href = "css/style.css">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">   
+    </head>
+
+    <body class = "width-50 flex-column post-border flex-center">
+        <header class = "flex-row flex-space-between align-items-start">
+            <div class = "flex-center div-picture align-items-start">
+                <img id = "author-photo" class = "circle-picture big-picture" src ="images/Cristian photo.jpg">
+            </div>
+            <div class = "full-width">
+                <h3 class = "color-lightgray font-weight-300 width-95"><a href = "https://www.facebook.com/cristi.florea.9465" class = "link no-decoration"><span id = "author" class = "font-weight-600"></span></a> posted <a href = "https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95" class = "link no-decoration"><span id="title"></span></a></h3>
+                <div class = "align-items-start">
+                    <h4 class = "color-lightgray font-weight-300"><span id = "date"></span></h4>
+                </div>
+            </div>
+            <div class = "styled-dots flex-center">
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+        </header>
+
+        <section class = "flex-center align-items-start height-3rem border-bottom-lightgray">
+            <div class = "width-95">
+                <a href = "https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95" class = "link no-decoration"><span id = "text"></span></a>
+            </div>
+        </section>
+
+
+        
+        <section class = "full-width border-top-lightgray border-bottom-lightgray">
+            <a href = "https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95"><img id = "image" src = "images/bruce-lee.jpg"></a>
+            <div class = "div-circle z-index-10">
+                <a href = "https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95"><i class="fas fa-info-circle"></i></a>
+            </div>
+        </section>
+
+        <section class = "flex-center lightgray-background">
+            <div class = "width-95">
+                <h2 class = "color-lightgray font-weight-300"><span id = "domain"></span></h2>
+                <a href = "https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95" class = "color-black no-decoration"><h1 class = "font-weight-600"><span id = "externalTitle"></h1></a>
+            </div>                        
+        </section>
+
+        <section class = "flex-center full-width border-top-lightgray border-bottom-lightgray white-background">
+            <div class = "flex-space-between flex-row width-95">
+                <div class = "width-80">
+                    <h2 class = "color-lightgray font-weight-300">Unit <span id = "unitNumber"></span> · <span id="topic"></span></h2>
+                    <h1 class = "color-black font-weight-600"><span id = "unitTitle"></span></h1>
+                </div>
+                <div>
+                    <form action = "https://www.facebook.com/groups/1581058245392877/learning_content?filter=238101844204452&post=235044101138548" class = "flex-center full-width">
+                        <button class = "styled-button">See Unit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <section class = "color-lightgray flex-end width-95 border-bottom-lightgray">
+            <p>Seen by <span id = "viewers"></span></p>
+        </section>
+
+        <section class = "full-width">
+
+            <div class = "flex-row full-width border-bottom-lightgray flex-center">
+                <div class = "flex-center width-95 color-lightgray font-size-bigger">
+                    <div class = "flex-row flex-space-between width-80">
+                        <div class = "flex-space-between flex-row width-40">
+                            <p id = "likes"></p>
+                            <i class = "fas fa-sign-language" onclick = "increment()"></i>
+                            <p>Like</p>
+                        </div>
+        
+                        <div class = "flex-space-between flex-row width-40">
+                            <i class= "far fa-comment-alt"></i>
+                            <p>Comment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "flex-center width-95">
+                <div class = "flex-space-between flex-row width-95">
+                    <img class = "circle-picture small-picture" src ="images/Cristian photo.jpg">
+                    <form id = "commentSection" class = "flex-center width-90">
+                        <textarea id = "comments" placeholder = "   Write a comment..." class = "width-95"></textarea>
+                        <div class = "width-35 z-index-10 styled-icons">
+                            <div class = "flex-space-between width-20">
+                                <i class="far fa-smile"></i>
+                                <i class="fas fa-camera"></i>
+                                <i class="far fa-copy"></i>
+                                <i class="far fa-sticky-note"></i>
+                            </div>
+                        </div>
+                        <input id = "myForm" type = "submit" onclick = "addComment()" value = "Comment">
+                    </form>
+                    <ul id = "publishedComments">
+
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+        
+        <script src = "script.js"></script>
+
+    </body>
+
+</html>
