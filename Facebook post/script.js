@@ -32,7 +32,7 @@ const topic = document.getElementById('topic');
 const unitTitle = document.getElementById('unitTitle');
 const viewers = document.getElementById('viewers');
 const likesNumber = document.getElementById('likes');
-const form = document.getElementById("commentSection"); //Find the element with the id "commentSection"
+const form = document.getElementById('form'); //Find the element with the id "commentSection"
 const comments = document.getElementById('comments');
 
 author.innerHTML = post.author;
@@ -72,9 +72,15 @@ function publishComment() {
   }
 };
 
-function doNotRefresh() {
-  form.addEventListener('submit', doNotRefresh);
+form.addEventListener('submit', (event)=> {
   event.preventDefault();
+  storeComment();
+  publishComment();
+});
+
+function doNotRefresh() {
+  
+  
 };
 
 function increment() {
