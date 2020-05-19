@@ -32,8 +32,10 @@ const topic = document.getElementById('topic');
 const unitTitle = document.getElementById('unitTitle');
 const viewers = document.getElementById('viewers');
 const likesNumber = document.getElementById('likes');
-const form = document.getElementById('form'); //Find the element with the id "commentSection"
+const form = document.getElementById('form'); //Find the element with the id "form"
 const comments = document.getElementById('comments');
+const list = document.getElementById('newComments');
+
 
 author.innerHTML = post.author;
 title.innerHTML = post.title;
@@ -49,27 +51,38 @@ viewers.innerHTML = post.viewers;
 likesNumber.innerHTML = post.likes;
 comments.innerHTML = post.comments;
 
-function addComment() {
-  doNotRefresh();
-  storeComment();
-  publishComment();
-}
 
 function storeComment() {
   const input = document.getElementById('comments').value;
-  comments.push(input);
+  post.comments.push(input);
 }
 
-function publishComment() {
-  const list = document.getElementById('publishedComments');
-  list.innerHTML = " ";
 
-  for (i = 0; i < comments.length; i++) {
-    const li = document.createElement("li");
-    const liText = document.createTextNode(comments[i]);
-    const listItem = li.appendChild(liText);
-    list.appendChild(listItem);
-  }
+
+function publishComment() {
+  list.innerHTML = "";
+  // for (i = 0; i < comments.length; i++) {
+  //   const li = document.createElement("li");
+  //   list.appendChild(li);
+  //   li.innerHTML += comments;
+  // }
+// const newLi = document.createElement("li");
+// const liText = document.createTextNode(post.comments[i]);
+// newLi.appendChild(liText);
+// list = document.body.appendChild(newLi);
+
+  // list.innerHTML = list;
+
+
+
+ 
+
+  post.comments.forEach(function (comments) {
+    const li = document.createElement('li');
+    list.appendChild(li);
+
+    li.innerHTML += comments;
+});
 };
 
 form.addEventListener('submit', (event)=> {
@@ -77,11 +90,6 @@ form.addEventListener('submit', (event)=> {
   storeComment();
   publishComment();
 });
-
-function doNotRefresh() {
-  
-  
-};
 
 function increment() {
   if (post.likes < 10) {
