@@ -32,10 +32,10 @@ const topic = document.getElementById('topic');
 const unitTitle = document.getElementById('unitTitle');
 const viewers = document.getElementById('viewers');
 const likesNumber = document.getElementById('likes');
-const form = document.getElementById('form'); //Find the element with the id "form"
+const form = document.getElementById('form'); // Find the element with the id "form"
 const comments = document.getElementById('comments');
 const list = document.getElementById('newComments');
-
+const focusArea = document.getElementById('focus-area')
 
 author.innerHTML = post.author;
 title.innerHTML = post.title;
@@ -49,47 +49,40 @@ topic.innerHTML = post.unit.topic;
 unitTitle.innerHTML = post.unit.unitTitle;
 viewers.innerHTML = post.viewers;
 likesNumber.innerHTML = post.likes;
-comments.innerHTML = post.comments;
-
 
 function storeComment() {
   const input = document.getElementById('comments').value;
   post.comments.push(input);
 }
 
-
-
 function publishComment() {
   list.innerHTML = "";
-  // for (i = 0; i < comments.length; i++) {
-  //   const li = document.createElement("li");
-  //   list.appendChild(li);
-  //   li.innerHTML += comments;
-  // }
-// const newLi = document.createElement("li");
-// const liText = document.createTextNode(post.comments[i]);
-// newLi.appendChild(liText);
-// list = document.body.appendChild(newLi);
-
-  // list.innerHTML = list;
-
-
-
  
-
-  post.comments.forEach(function (comments) {
+  post.comments.forEach(function (comment) {
     const li = document.createElement('li');
+    li.innerHTML += comment;
     list.appendChild(li);
-
-    li.innerHTML += comments;
-});
+  });
 };
 
-form.addEventListener('submit', (event)=> {
+publishComment();
+
+form.addEventListener('submit', (event) => {
   event.preventDefault();
+  console.log('submit')
   storeComment();
   publishComment();
 });
+
+comments.addEventListener('focus', () => {
+  console.log('focus');
+  focusArea.style.background = 'red'
+})
+
+comments.addEventListener('blur', () => {
+  console.log('blur')
+  focusArea.style.background = 'white'
+})
 
 function increment() {
   if (post.likes < 10) {
